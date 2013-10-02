@@ -1,3 +1,8 @@
+//*adicionar outros tipos de produtos ao carrinho
+//* listar todos os produtos do carrinho
+//* remover um produto do carrinho
+//* calcular o total que deve ser pago pelos produtos do carrinho
+
 package br.calebe.exemplos.ex01;
 
 import java.util.ArrayList;
@@ -27,4 +32,28 @@ public class Carrinho {
         }
         return menor;
     }
+	
+	public List<Produto> getListaProdutos(){
+        return produtos;
+    }
+	
+	
+   
+    public void removeProduto(Produto produtoAntigo)throws CarrinhoVazioExpected{
+        if(produtos.isEmpty()) throw new CarrinhoVazioExpected();
+        produtos.remove(produtoAntigo);
+    }
+	
+	
+	public double precoTotalCarrinho(){
+		double total = 0.0;
+        if(produtos.isEmpty()) 
+			return 0.0;        
+        for(Produto produto : produtos){
+            total += produto.getPreco();
+        }
+        return total;
+    }
+	
+	
 }

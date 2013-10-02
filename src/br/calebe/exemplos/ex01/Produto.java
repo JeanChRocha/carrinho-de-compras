@@ -22,4 +22,12 @@ public class Produto {
     public boolean equals(Produto obj) {
         return nome.equals(obj.nome);
     }
+	
+	
+    public class Livro extends Produto {
+    public Livro(String nome, double preco){
+        super(nome,preco);
+    }
+    
+    }
 }
